@@ -25,9 +25,6 @@ public class MenuController {
         return menuItemService.getMenuItemsByRestaurantId(restaurantId);
     }
 
-
-
-
     @GetMapping("/restaurants/menu")
     public List<RestaurantDto> getMenuForAllRestaurants() {
         return restaurantService.getRestaurants();
