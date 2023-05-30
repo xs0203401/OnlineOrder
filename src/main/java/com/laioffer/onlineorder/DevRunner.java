@@ -1,18 +1,11 @@
 package com.laioffer.onlineorder;
 
-import com.laioffer.onlineorder.entity.*;
-import com.laioffer.onlineorder.model.RestaurantDto;
-import com.laioffer.onlineorder.repository.*;
-import com.laioffer.onlineorder.service.CartService;
-import com.laioffer.onlineorder.service.MenuItemService;
-import com.laioffer.onlineorder.service.RestaurantService;
+import com.laioffer.onlineorder.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Component
 public class DevRunner implements ApplicationRunner {
@@ -20,6 +13,19 @@ public class DevRunner implements ApplicationRunner {
     // A logger for print
     private static final Logger logger = LoggerFactory.getLogger(DevRunner.class);
 
+    private final CustomerService customerService;
+
+    public DevRunner(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        customerService.signUp("foo@gmail.com", "123456", "Foo", "Bar");
+    }
+
+    /*
+    // initial test code
     private final CartRepository cartRepository;
     private final CustomerRepository customerRepository;
     private final MenuItemRepository menuItemRepository;
@@ -108,4 +114,6 @@ public class DevRunner implements ApplicationRunner {
 //
 //        logger.info(cartService.getCart(1L).toString());
     }
+
+     */
 }
