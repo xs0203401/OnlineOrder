@@ -21,7 +21,7 @@ public class DevRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        customerService.signUp("foo@gmail.com", "123456", "Foo", "Bar");
+        customerService.signUp("foo@mail.com", "123456", "Foo", "Bar");
     }
 
     /*
